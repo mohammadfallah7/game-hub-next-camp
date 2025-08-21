@@ -11,7 +11,7 @@ import { ColorModeButton } from "./ui/color-mode";
 
 const Header = () => {
   return (
-    <HStack gap={5} py={3} pl={3} pr={5}>
+    <HStack gap={5} py={3}>
       <Image src="/logo.webp" alt="Logo" width={16} />
       <Group attached w="full" mr={2}>
         <Input placeholder="Search games..." />
