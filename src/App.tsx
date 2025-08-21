@@ -5,17 +5,17 @@ import GamesList from "./components/GamesList";
 const App = () => {
   return (
     <Grid
-      templateColumns={{ base: "1fr", md: "repeat(12, 1fr)" }}
+      templateColumns={{ base: "1fr", md: "repeat(6, 1fr)" }}
       gap={5}
       px={5}
     >
-      <GridItem colSpan={12} as="header">
+      <GridItem colSpan={6} as="header">
         <Header />
       </GridItem>
-      <GridItem display={{ base: "none", md: "block" }} colSpan={3} as="aside">
+      <GridItem display={{ base: "none", md: "block" }} colSpan={1} as="aside">
         Sidebar
       </GridItem>
-      <GridItem colSpan={{ base: 12, md: 9 }} as="aside">
+      <GridItem colSpan={{ base: 6, md: 5 }} as="aside">
         <GamesList />
       </GridItem>
     </Grid>

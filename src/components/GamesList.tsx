@@ -1,33 +1,16 @@
-import type { GameModel } from "@/types/game.model";
-import { axiosInstance } from "../lib/utils";
-import { useEffect, useState } from "react";
-import type { GetAllResponseModel } from "@/types/response.model";
+import { Box } from "@chakra-ui/react";
+import useGames from "../hooks/use-games";
+import GameCard from "./GameCard";
 
 const GamesList = () => {
-  const [games, setGames] = useState<GameModel[]>([]);
-
-  useEffect(() => {
-    const controller = new AbortController();
-
-    axiosInstance
-      .get<GetAllResponseModel<GameModel>>("/games", {
-        signal: controller.signal,
-      })
-      .then((res) => {
-        setGames(res.data.results);
-      });
-
-    return () => {
-      controller.abort();
-    };
-  }, []);
+  const { data } = useGames();
 
   return (
-    <ul>
-      {games.map((game) => (
-        <li key={game.id}>{game.name}</li>
+    <Box columns={{ base: 1, md: 2, lg: 3 }} gap={5}>
+      {data?.results.map((game) => (
+        <GameCard key={game.id} game={game} />
       ))}
-    </ul>
+    </Box>
   );
 };
 
