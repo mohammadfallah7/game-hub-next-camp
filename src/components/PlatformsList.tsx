@@ -4,6 +4,7 @@ import { iconMap } from "../lib/utils";
 import type { PlatformModel } from "../types/platform.model";
 import { useState } from "react";
 import HideAndShowSideItems from "./HideAndShowSideItems";
+import useGameQueryStore from "../stores/game-query-store";
 
 const PlatformsList = () => {
   const { data: platforms } = usePlatforms();
@@ -30,10 +31,11 @@ const PlatformsList = () => {
 };
 
 const Platform = ({ platform }: { platform: PlatformModel }) => {
+  const onSelectPlatform = useGameQueryStore((s) => s.onSelectPlatform);
   const PlatformIcon = iconMap[`${platform.slug}`];
 
   return (
-    <Link>
+    <Link onClick={() => onSelectPlatform(platform)}>
       <HStack key={platform.id}>
         <Avatar.Root shape="rounded" size="sm">
           <Icon size="md">

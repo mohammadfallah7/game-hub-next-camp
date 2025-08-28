@@ -3,6 +3,7 @@ import HideAndShowSideItems from "./HideAndShowSideItems";
 import { useState } from "react";
 import useGenres from "../hooks/use-genres";
 import type { GenreModel } from "../types/genre.model";
+import useGameQueryStore from "../stores/game-query-store";
 
 const GenresList = () => {
   const { data: genres } = useGenres();
@@ -29,8 +30,10 @@ const GenresList = () => {
 };
 
 const Genre = ({ genre }: { genre: GenreModel }) => {
+  const onSelectGenre = useGameQueryStore((s) => s.onSelectGenre);
+
   return (
-    <Link>
+    <Link onClick={() => onSelectGenre(genre)}>
       <HStack>
         <Avatar.Root shape="rounded" size="sm" overflow="hidden">
           <Image
