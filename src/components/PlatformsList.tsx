@@ -19,10 +19,12 @@ const PlatformsList = () => {
           <Platform key={platform.id} platform={platform} />
         ))}
       </Flex>
-      <HideAndShowSideItems
-        expand={expand}
-        onClick={() => setExpand(!expand)}
-      />
+      {platforms?.results && (
+        <HideAndShowSideItems
+          expand={expand}
+          onClick={() => setExpand(!expand)}
+        />
+      )}
     </Flex>
   );
 };

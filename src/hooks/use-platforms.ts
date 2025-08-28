@@ -8,6 +8,7 @@ const usePlatforms = () => {
     queryKey: ["platforms"],
     queryFn: () =>
       axiosInstance.get("/platforms/lists/parents").then((res) => res.data),
+    staleTime: 10 * 60 * 1000, // 10min
   });
 };
 
