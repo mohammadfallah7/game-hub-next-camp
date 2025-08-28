@@ -11,13 +11,12 @@ import {
   FaWindows,
   FaXbox,
 } from "react-icons/fa6";
-
-const API_KEY = import.meta.env.VITE_RAWG_API_KEY;
+import env from "./env";
 
 export const axiosInstance = axios.create({
-  baseURL: "https://api.rawg.io/api",
+  baseURL: env.baseUrl,
   params: {
-    key: API_KEY,
+    key: env.apiKey,
   },
 });
 
