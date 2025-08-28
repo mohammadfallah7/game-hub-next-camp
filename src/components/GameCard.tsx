@@ -15,7 +15,7 @@ const GameCard = ({ game }: { game: GameModel }) => {
               const PlatformIcon = iconMap[`${platform.slug}`];
 
               return (
-                <Icon size="sm">
+                <Icon key={platform.id} size="sm">
                   <PlatformIcon />
                 </Icon>
               );

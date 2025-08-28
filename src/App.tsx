@@ -1,6 +1,7 @@
 import { Grid, GridItem } from "@chakra-ui/react";
 import Header from "./components/Header";
 import GamesList from "./components/GamesList";
+import Sidebar from "./components/Sidebar";
 
 const App = () => {
   return (
@@ -13,7 +14,7 @@ const App = () => {
         <Header />
       </GridItem>
       <GridItem display={{ base: "none", md: "block" }} colSpan={1} as="aside">
-        Sidebar
+        <Sidebar />
       </GridItem>
       <GridItem colSpan={{ base: 6, md: 5 }} as="aside">
         <GamesList />
