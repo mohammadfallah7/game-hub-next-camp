@@ -29,7 +29,12 @@ const GamesList = () => {
           >
             <ButtonGroup variant="ghost" size="sm">
               <Pagination.PrevTrigger asChild>
-                <IconButton>
+                <IconButton
+                  onClick={() => {
+                    onChangePage(Number(data.previous?.split("&")[1][5]));
+                    setSelectedPage((prev) => prev - 1);
+                  }}
+                >
                   <LuChevronLeft />
                 </IconButton>
               </Pagination.PrevTrigger>
@@ -49,7 +54,12 @@ const GamesList = () => {
               />
 
               <Pagination.NextTrigger asChild>
-                <IconButton>
+                <IconButton
+                  onClick={() => {
+                    onChangePage(Number(data.next?.split("&")[1][5]));
+                    setSelectedPage((prev) => prev + 1);
+                  }}
+                >
                   <LuChevronRight />
                 </IconButton>
               </Pagination.NextTrigger>

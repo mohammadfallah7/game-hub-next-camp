@@ -12,7 +12,7 @@ interface GameQueryStoreType {
     name: string;
   }) => void;
   onSelectGenre: (genre: { id: number; slug: string; name: string }) => void;
-  onChangePage: (value: number) => void;
+  onChangePage: (value?: number) => void;
 }
 
 const useGameQueryStore = create<GameQueryStoreType>((set) => ({
